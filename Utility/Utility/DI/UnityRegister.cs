@@ -1,23 +1,28 @@
-﻿namespace Utility
+﻿
+
+using Microsoft.Practices.Unity.Configuration;
+
+namespace Utility.UnityRegister
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using System.Threading.Tasks;
     using Microsoft.Practices.Unity;
+    using System.Configuration;
 
     public class UnityRegister
     {
-        private static IList<string> ListRegisteredAssemblie = new List<string>() 
+        private static IList<string> ListRegisteredAssemblies = new List<string>() 
         { 
-             "YoutubeBatchDownloader.Service",
-             "YoutubeBatchDownloader.Service.ThunderVBS",
+             "Utility",
         };
 
         public static void RegisterTypes(IUnityContainer container)
         {
-            container.RegisterTypes(AllClasses.FromLoadedAssemblies().Where(t => ListRegisteredAssemblie.Contains(t.Namespace)));
+            var types = AllClasses.FromLoadedAssemblies().Where(t => ListRegisteredAssemblies.Contains(t.Namespace));
+
+            container.RegisterTypes(types);
         }
     }
 }
