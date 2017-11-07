@@ -1,41 +1,25 @@
 ﻿namespace Utility.Test
 {
     using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System.Collections.Generic;
+    using FluentAssertions;
+    using Xunit;
 
-    [TestClass]
     public class DateTimeHelperTest
     {
-        [TestMethod]
-        public void DiffYears_ShouldReturn1_WhenItIsLeapYear()
-        {
-            // Arrange
-            DateTime startDate = new DateTime(2016, 1, 1);
-            DateTime endDate = new DateTime(2016, 12, 31);
+        public static IEnumerable<object[]> LeapYear => new[] { new object[] { new DateTime(2016, 1, 1), new DateTime(2016, 12, 31), 1M },};
+        public static IEnumerable<object[]> NormalYear => new[] { new object[] { new DateTime(2017, 1, 1), new DateTime(2017, 12, 31), 1M },};
 
+
+        [Theory]
+        [MemberData(nameof(LeapYear))]
+        public void DiffYears_ShouldReturn1_WhenItIsLeapYear(DateTime startDate, DateTime endDate, decimal expected)
+        {
             // Act
-            decimal years = startDate.DiffYears(endDate);
+            decimal actual = startDate.DiffYears(endDate);
 
             // Assert
-            decimal expected = 1M;
-
-            Assert.AreEqual(expected, years);
-        }
-
-        [TestMethod]
-        public void DiffYears_ShouldReturn1_WhenItIsNotLeapYear()
-        {
-            // Arrange
-            DateTime startDate = new DateTime(2017, 1, 1);
-            DateTime endDate = new DateTime(2017, 12, 31);
-
-            // Act
-            decimal years = startDate.DiffYears(endDate);
-
-            // Assert
-            decimal expected = 1M;
-
-            Assert.AreEqual(expected, years);
+            actual.ShouldBeEquivalentTo(expected);
         }
     }
 }
