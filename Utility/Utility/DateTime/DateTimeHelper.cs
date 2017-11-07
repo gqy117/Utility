@@ -18,8 +18,8 @@
 
             DateTime nextYear = lastYear.AddYears(1);
 
-            int yearDays = (nextYear - lastYear).Days;
-            int days = (endDate - lastYear).Days;
+            decimal yearDays = (nextYear - lastYear).Days;
+            decimal days = (endDate - lastYear).Days;
 
             decimal exactAge = intYears + (days / yearDays);
 
