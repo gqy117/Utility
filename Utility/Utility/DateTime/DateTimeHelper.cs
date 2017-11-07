@@ -6,8 +6,6 @@
     {
         public static decimal DiffYears(this DateTime startDate, DateTime endDate)
         {
-            endDate = endDate.AddDays(1);
-
             int intYears = endDate.Year - startDate.Year;
             DateTime lastYear = startDate.AddYears(intYears);
             if (lastYear > endDate)
