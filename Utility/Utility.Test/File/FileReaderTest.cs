@@ -1,22 +1,18 @@
 ﻿namespace Utility.Test
 {
-    using System;
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using Xunit;
     using FluentAssertions;
 
-    [TestClass]
     public class FileReaderTest
     {
         private FileReader FileReader { get; set; }
 
-        [TestInitialize]
-        public void Init()
+        public FileReaderTest()
         {
             FileReader = new FileReader();
         }
 
-        [TestMethod]
+        [Fact]
         public void ReadStringTest()
         {
             // Arrange

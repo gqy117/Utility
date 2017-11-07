@@ -1,19 +1,15 @@
 ﻿
-
 namespace Utility.Test
 {
-    using System;
-    using System.Collections.Generic;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using FluentAssertions;
     using System.Linq;
     using Microsoft.Practices.Unity;
+    using Xunit;
     using Utility.UnityRegister;
 
-    [TestClass]
     public class UnityRegisterTest
     {
-        [TestMethod]
+        [Fact]
         public void ReadStringTest()
         {
             // Arrange
