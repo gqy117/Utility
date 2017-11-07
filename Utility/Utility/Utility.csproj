@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DateTime\DateTimeHelper.cs" />
     <Compile Include="DI\UnityRegister.cs" />
     <Compile Include="File\FileReader.cs" />
     <Compile Include="File\ResourceSerialiser.cs" />
