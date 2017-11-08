@@ -19,12 +19,22 @@
         public static IEnumerable<object[]> OneYearOneDayLeapYear => new[] { new object[] { new DateTime(2015, 1, 1), new DateTime(2016, 1, 2), 1 + 1 / 366M } };
         public static IEnumerable<object[]> OneYearOneDay => new[] { new object[] { new DateTime(2017, 1, 1), new DateTime(2018, 1, 2), 1 + 1 / 365M } };
         public static IEnumerable<object[]> Negative => new[] { new object[] { new DateTime(2017, 1, 1), new DateTime(2016, 1, 1), -1M } };
+        public static IEnumerable<object[]> StartDateIsMiddleOfYear => new[]
+        {
+            new object[] { new DateTime(2014, 4, 17), new DateTime(2015, 4, 17), 1M },
+            new object[] { new DateTime(2015, 4, 17), new DateTime(2016, 4, 17), 1M },
+            new object[] { new DateTime(2016, 4, 17), new DateTime(2017, 4, 17), 1M },
+            new object[] { new DateTime(2017, 4, 17), new DateTime(2018, 4, 17), 1M },
+            new object[] { new DateTime(2018, 4, 17), new DateTime(2019, 4, 17), 1M },
+            new object[] { new DateTime(2019, 4, 17), new DateTime(2020, 4, 17), 1M },
+        };
 
         [Theory]
         [MemberData(nameof(OneLeapYear))]
         [MemberData(nameof(OneYear))]
         [MemberData(nameof(HalfYear))]
         [MemberData(nameof(ThreeYears))]
+        [MemberData(nameof(StartDateIsMiddleOfYear))]
         [MemberData(nameof(ZeroDay))]
         [MemberData(nameof(OneDay))]
         [MemberData(nameof(TwoDays))]
