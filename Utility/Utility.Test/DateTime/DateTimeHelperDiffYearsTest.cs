@@ -5,7 +5,7 @@
     using FluentAssertions;
     using Xunit;
 
-    public class DateTimeHelperTest
+    public class DateTimeHelperDiffYearsTest
     {
         public static IEnumerable<object[]> HalfYear => new[] { new object[] { new DateTime(2016, 1, 1), new DateTime(2016, 7, 2), 0.5M } };
         public static IEnumerable<object[]> ThreeYears => new[] { new object[] { new DateTime(2015, 1, 1), new DateTime(2018, 1, 1), 3M } };

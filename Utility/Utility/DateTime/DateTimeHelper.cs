@@ -23,5 +23,16 @@
 
             return exactAge;
         }
+
+        public static int CalculateAge(this DateTime startDate, DateTime endDate)
+        {
+            int age = endDate.Year - startDate.Year;
+
+            // Go back to the year the person was born in case of a leap year
+            if (startDate > endDate.AddYears(-age))
+                age--;
+
+            return age;
+        }
     }
 }

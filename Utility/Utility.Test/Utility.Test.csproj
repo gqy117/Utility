@@ -86,7 +86,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="DateTime\DateTimeHelperTest.cs" />
+    <Compile Include="DateTime\DateTimeHelperCalculateAgeTest.cs" />
+    <Compile Include="DateTime\DateTimeHelperDiffYearsTest.cs" />
     <Compile Include="DI\UnityRegisterTest.cs" />
     <Compile Include="File\FileReaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
