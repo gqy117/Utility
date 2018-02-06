@@ -20,15 +20,9 @@
 
         public HashWithSaltResult HashWithSalt(string password, byte[] saltBytes, HashAlgorithm hashAlgo)
         {
-            byte[] passwordAsBytes = Encoding.UTF8.GetBytes(password);
-            List<byte> passwordWithSaltBytes = new List<byte>();
+            var pbkdf2 = new Rfc2898DeriveBytes(password, saltBytes, 20);
 
-            passwordWithSaltBytes.AddRange(passwordAsBytes);
-            passwordWithSaltBytes.AddRange(saltBytes);
-
-            byte[] digestBytes = hashAlgo.ComputeHash(passwordWithSaltBytes.ToArray());
-
-            return new HashWithSaltResult(Convert.ToBase64String(saltBytes), Convert.ToBase64String(digestBytes));
+            return new HashWithSaltResult(Convert.ToBase64String(saltBytes), Convert.ToBase64String(pbkdf2.GetBytes(20)));
         }
     }
 }
