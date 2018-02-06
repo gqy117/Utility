@@ -1,6 +1,7 @@
 ﻿namespace Utility.Test
 {
     using System.Security.Cryptography;
+    using System.Text;
     using FluentAssertions;
     using Xunit;
 
@@ -18,12 +19,13 @@
         {
             // Arrange
             string plaintext = "1";
-
+            byte[] saltBytes = Encoding.ASCII.GetBytes("tgGoZ5PobQD4LZFdclx9FyL5vsqvVDrPnTIblUmJLZmQsGjawWlun5ZK0M3l2Vzc30UE+vWaYaPi791rJVw1uA==");
+            
             // Act
-            var actual = this.PasswordWithSaltHasher.HashWithSalt(plaintext, 64, SHA256.Create());
+            var actual = this.PasswordWithSaltHasher.HashWithSalt(plaintext, saltBytes, SHA256.Create());
 
             // Assert
-            var expected = "a4ayc/80/OGda4BO/1o/V0etpOqiLx1JwB5S3beHW0s=";
+            var expected = "4EG42q/MwrOzefVzehXlrJkrVuRlaXVVRG2LO1NX3G0=";
 
             actual.Digest.ShouldBeEquivalentTo(expected);
         }
