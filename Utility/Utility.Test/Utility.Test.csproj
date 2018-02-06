@@ -89,6 +89,7 @@
     <Compile Include="DateTime\DateTimeHelperCalculateAgeTest.cs" />
     <Compile Include="DateTime\DateTimeHelperDiffYearsTest.cs" />
     <Compile Include="DI\UnityRegisterTest.cs" />
+    <Compile Include="Encryption\PasswordWithSaltHasherTest.cs" />
     <Compile Include="File\FileReaderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +111,7 @@
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
