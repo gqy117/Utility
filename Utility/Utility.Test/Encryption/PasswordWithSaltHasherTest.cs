@@ -25,7 +25,7 @@
             var actual = this.PasswordWithSaltHasher.HashWithSalt(plaintext, saltBytes, SHA256.Create());
 
             // Assert
-            var expected = "zId+8BE7daHBbW0iU/8SuU1UUZc=";
+            var expected = "YYImTQs4tNp1YpXStzwbrvbUvsPs1/IuTVgklh4wwR4=";
 
             actual.Digest.ShouldBeEquivalentTo(expected);
         }
