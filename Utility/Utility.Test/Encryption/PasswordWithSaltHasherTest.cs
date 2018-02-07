@@ -1,33 +1,30 @@
 ﻿namespace Utility.Test
 {
+    using System;
     using System.Security.Cryptography;
     using System.Text;
     using FluentAssertions;
     using Xunit;
 
-    public class PasswordWithSaltHasherTest
+    public class PasswordHashTest
     {
-        private PasswordWithSaltHasher PasswordWithSaltHasher;
-
-        public PasswordWithSaltHasherTest()
-        {
-            this.PasswordWithSaltHasher = new PasswordWithSaltHasher();
-        }
-
         [Fact]
         public void HashWithSalt_ShouldReturnEncryptedString_WhenTheInputIs1()
         {
             // Arrange
             string plaintext = "1";
-            byte[] saltBytes = Encoding.ASCII.GetBytes("tgGoZ5PobQD4LZFdclx9FyL5vsqvVDrPnTIblUmJLZmQsGjawWlun5ZK0M3l2Vzc30UE+vWaYaPi791rJVw1uA==");
-            
+            string passwordBase64 = "/jXZiDyCmhbrOMKpQ9owOJrGjyk=";
+            string saltBase64 = "bB9D1uRu5HLfhA0g4aHOtw==";
+
+            var hasher = new PasswordHash();
+
             // Act
-            var actual = this.PasswordWithSaltHasher.HashWithSalt(plaintext, saltBytes, SHA256.Create());
+            var actual = hasher.Verify(saltBase64, passwordBase64, plaintext);
 
             // Assert
-            var expected = "YYImTQs4tNp1YpXStzwbrvbUvsPs1/IuTVgklh4wwR4=";
+            var expected = true;
 
-            actual.Digest.ShouldBeEquivalentTo(expected);
+            actual.ShouldBeEquivalentTo(expected);
         }
     }
 }

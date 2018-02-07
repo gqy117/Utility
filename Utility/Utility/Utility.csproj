@@ -56,9 +56,7 @@
   <ItemGroup>
     <Compile Include="DateTime\DateTimeHelper.cs" />
     <Compile Include="DI\UnityRegister.cs" />
-    <Compile Include="Encryption\HashWithSaltResult.cs" />
-    <Compile Include="Encryption\PasswordWithSaltHasher.cs" />
-    <Compile Include="Encryption\RNG.cs" />
+    <Compile Include="Encryption\PasswordHash.cs" />
     <Compile Include="File\FileReader.cs" />
     <Compile Include="File\ResourceSerialiser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
